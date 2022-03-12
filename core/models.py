@@ -17,3 +17,11 @@ class Student(models.Model):
 
     def __str__(self):
         return self.lastName
+
+
+class Section(models.Model):
+    name = models.CharField('Название', max_length=128)
+    student = models.ManyToManyField('core.Student')
+
+    def __str__(self):
+        return self.name
