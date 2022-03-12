@@ -9,11 +9,16 @@ class Departament(models.Model):
 
 
 class Student(models.Model):
-    departament = models.ForeignKey('core.Departament', on_delete=models.CASCADE, null=True, blank=True)
+    departament = models.ForeignKey('core.Departament', on_delete=models.CASCADE, null=True, blank=True, related_name='dep')
     lastName = models.CharField('Фамилия', max_length=128)
     name = models.CharField('Имя', max_length=128)
     group = models.IntegerField('Номер группы')
     numberOfRecord = models.IntegerField('Номер зачетной книжки')
+
+    class Meta:
+        ordering = ['-group']
+        verbose_name = 'Студент'
+        verbose_name_plural = 'Студенты'
 
     def __str__(self):
         return self.lastName
