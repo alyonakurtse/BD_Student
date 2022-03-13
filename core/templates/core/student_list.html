@@ -36,6 +36,16 @@
       </div>
     </nav>
 
+  <form class="row g-3">
+      <div class="col-auto">
+        <input type="text" class="form-control" placeholder="Фамилия" name="lastname" value="{{ request.GET.lastname }}">
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+  </form>
+
 <table class="table">
   <thead>
     <tr>
@@ -47,7 +57,7 @@
     </tr>
   </thead>
   <tbody>
-  {% for student in students %}
+  {% for student in object_list %}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td><a href="{% url 'core:student_detail' student.pk  %}">{{ student.lastName }}</a></td>
