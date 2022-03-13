@@ -7,7 +7,7 @@ import core.models
 
 
 class TitleMixin:
-    title = None
+    title:str = None
 
     def get_title(self):
         return self.title
@@ -31,7 +31,9 @@ class IndexView(TitleMixin, TemplateView):
         return 'Главная страница'
 
 
-class Students(ListView):
+class Students(TitleMixin, ListView):
+    title = 'Студенты'
+
     def get_queryset(self):
         lastname = self.request.GET.get('lastname')
         queryset = core.models.Student.objects.all()
@@ -40,5 +42,9 @@ class Students(ListView):
         return queryset
 
 
-class StudentDetail(DetailView):
+class StudentDetail(TitleMixin, DetailView):
     queryset = core.models.Student.objects.all()
+
+    def get_title(self):
+        return str(self.get_object())
+

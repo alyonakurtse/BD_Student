@@ -1,51 +1,9 @@
-<!doctype html>
-<html lang="en">
-  <head>
+{% extends 'core/index.html' %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block title %}{% endblock %}
 
-
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" >
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'core:index' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/">Admin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=" {% url 'core:student_list' %}">Students</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-  <form class="row g-3">
-      <div class="col-auto">
-        <input type="text" class="form-control" placeholder="Фамилия" name="lastname" value="{{ request.GET.lastname }}">
-      </div>
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-
-  </form>
-
+{% block content %}
+    {% include 'core/search_students_include.html' %}
 <table class="table">
   <thead>
     <tr>
@@ -65,12 +23,10 @@
       <td>{{ student.group }}</td>
       <td>{{ student.numberOfRecord }}</td>
     </tr>
+      {% empty %}
+      <h4> Не найдено </h4>
     {% endfor %}
   </tbody>
 </table>
 
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-
-
-  </body>
-</html>
+{% endblock %}
