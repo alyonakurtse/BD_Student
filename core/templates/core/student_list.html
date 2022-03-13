@@ -36,8 +36,30 @@
       </div>
     </nav>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Группа</th>
+      <th scope="col">Номер зачетной книжки </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in students %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><a href="{% url 'core:student_detail' student.pk  %}">{{ student.lastName }}</a></td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.group }}</td>
+      <td>{{ student.numberOfRecord }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
 
   </body>

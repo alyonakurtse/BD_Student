@@ -15,15 +15,15 @@ Including another URLconf
 """
 import os
 
-from project import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-import core.views
+
+from project import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('core.urls'))
+    path('', include('core.urls', namespace='core')),
 ]
 
 if settings.DEBUG:
