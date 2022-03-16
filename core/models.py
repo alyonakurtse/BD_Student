@@ -4,6 +4,10 @@ from django.db import models
 class Departament(models.Model):
     name = models.CharField('Название', max_length=128)
 
+    class Meta:
+        verbose_name = 'Факультет'
+        verbose_name_plural = 'Факультеты'
+
     def __str__(self):
         return self.name
 
@@ -27,6 +31,10 @@ class Student(models.Model):
 class Section(models.Model):
     name = models.CharField('Название', max_length=128)
     student = models.ManyToManyField('core.Student')
+
+    class Meta:
+        verbose_name = 'Секция'
+        verbose_name_plural = 'Секции'
 
     def __str__(self):
         return self.name
