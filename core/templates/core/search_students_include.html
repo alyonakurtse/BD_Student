@@ -1,7 +1,9 @@
- <form class="row g-3">
-      <div class="col-auto">
-        <input type="text" class="form-control" placeholder="Фамилия" name="lastname" value="{{ request.GET.lastname }}">
-      </div>
+{% load bootstrap5 %}
+<form class="row g-3">
+{#      <div class="col-auto">#}
+{#        <input type="text" class="form-control" placeholder="Фамилия" name="lastname" value="{{ request.GET.lastname }}">#}
+{#      </div>#}
+     {% bootstrap_form form %}
       <div class="col-auto">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

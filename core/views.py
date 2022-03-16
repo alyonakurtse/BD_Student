@@ -4,7 +4,8 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic import TemplateView, ListView, DetailView
 
 import core.models
-
+import core.forms
+import core.filters
 
 class TitleMixin:
     title:str = None
@@ -34,12 +35,20 @@ class IndexView(TitleMixin, TemplateView):
 class Students(TitleMixin, ListView):
     title = 'Студенты'
 
+    def get_filters(self):
+        return core.filters.StudentFilter(self.request.GET)
+
     def get_queryset(self):
         lastname = self.request.GET.get('lastname')
         queryset = core.models.Student.objects.all()
         if lastname:
             queryset = queryset.filter(lastName__icontains=lastname)
         return queryset
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['form'] = core.forms.StudentSearch(self.request.GET or None)
+        return context
 
 
 class StudentDetail(TitleMixin, DetailView):
