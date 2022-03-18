@@ -6,6 +6,7 @@ import core.models
 class StudentSearch(forms.Form):
     lastname = forms.CharField(label='Фамилия', required=False)
     group = forms.IntegerField(label='Группа', required=False, help_text='Номер группы')
+    departament = forms.ModelChoiceField(label='Факультет', queryset=core.models.Departament.objects.all(), to_field_name='name')
 
     def clean(self):
         cleaned_data = self.cleaned_data

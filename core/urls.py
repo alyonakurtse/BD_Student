@@ -9,4 +9,8 @@ urlpatterns = [
     path('', core.views.IndexView.as_view(), name='index'),
     path('students/', core.views.Students.as_view(), name='student_list'),
     path('students/<int:pk>/', core.views.StudentDetail.as_view(), name='student_detail'),
+    path('students/<int:pk>/update/', core.views.StudentUpdate.as_view(), name='student_update'),
+    path('students/<int:pk>/delete/', core.views.StudentDelete.as_view(), name='student_delete'),
+    path('students/create/', core.views.StudentCreate.as_view(), name='student_create'),
+
 ]
