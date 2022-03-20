@@ -1,5 +1,12 @@
 {% extends 'core/index.html' %}
+{% block title %}{% endblock %}
 {% block content %}
-    <a href="{% url 'core:student_update' object.pk %}">Изменить</a>
-    <a href="{% url 'core:student_delete' object.pk %}">Удалить</a>
+    <ul class="list-group  list-group" >
+      <li class="list-group-item"><h6>Фамилия: {{  student.lastName }}</h6></li>
+      <li class="list-group-item"><h6>Имя: {{ student.name }}</h6></li>
+      <li class="list-group-item"><h6>Номер зачетной книжки: {{ student.numberOfRecord }}</h6></li>
+      <li class="list-group-item"><h6>Группа: {{ student.group }}</h6></li>
+    </ul>
+    <a  class="btn btn-success" href="{% url 'core:student_update' object.pk %}">Изменить</a>
+    <a class="btn btn-warning" href="{% url 'core:student_delete' object.pk %}">Удалить</a>
 {% endblock %}
