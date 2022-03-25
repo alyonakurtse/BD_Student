@@ -93,3 +93,13 @@ class StudentDelete(TitleMixin, DeleteView):
 class FMiIT(TitleMixin, TemplateView):
     template_name = 'core/fmiit_info.html'
     title = 'ФМиИТ'
+
+
+class XimFuk(TitleMixin, TemplateView):
+    template_name = 'core/ximfuk_info.html'
+    title = 'ХимФак'
+
+
+class IIGU(TitleMixin, TemplateView):
+    template_name = 'core/iigu_info.html'
+    title = 'ИИГУ'

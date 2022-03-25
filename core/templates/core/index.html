@@ -43,7 +43,8 @@
 
       {% block content %}
         {% load static %}
-        <div class="card-group" style="width: 18rem;">
+          <link rel="stylesheet" href="{% static 'core/fmiit_style.css'%}" type="text/css">
+        <div class="card-group" style="width: 18rem;" id="fmiit_card">
          <img src="{% static 'core/fmiit.jpg' %}" class="card-img-top" alt="FMiIT">
           <div class="card-body">
             <h5 class="card-title">Факультет математики и информационных технологий</h5>
@@ -51,6 +52,25 @@
             <a href="{% url 'core:core_fmiit' %}" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
+
+        <div class="card-group" style="width: 18rem;" id="ximfuk_card">
+         <img src="{% static 'core/ximfuk.jpg' %}" class="card-img-top" alt="XimFuk">
+          <div class="card-body">
+            <h5 class="card-title">Химический факультет</h5>
+            <p class="card-text">Наш факультет - единственное место в Республике Башкортостан, где готовят бакалавров, специалистов и магистров, в совершенстве владеющих фундаментальными и прикладными химическими знаниями.</p>
+            <a href="{% url 'core:core_ximfuk' %}" class="btn btn-primary">Подробнее</a>
+          </div>
+        </div>
+
+        <div class="card-group" style="width: 18rem;" id="iigu_card">
+         <img src="{% static 'core/iigu.jpg' %}" class="card-img-top" alt="IIGU">
+          <div class="card-body">
+            <h5 class="card-title">Институт истории и государственного управления</h5>
+            <p class="card-text">Институт истории и государственного управления образован в 2017 году в результате объединения Института управления и безопасности предпринимательства и исторического факультета.</p>
+            <a href="{% url 'core:core_iigu' %}" class="btn btn-primary">Подробнее</a>
+          </div>
+        </div>
+
       {% endblock %}
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
