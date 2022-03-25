@@ -18,7 +18,7 @@
   {% for student in object_list %}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
-      <td><a href="{% url 'core:student_detail' student.pk  %}"></a></td>
+      <td><a href="{% url 'core:student_detail' student.pk  %}">{{ student.lastName }}</a></td>
       <td>{{ student.name|capfirst }}</td>
       <td>{{ student.group }}</td>
       <td>{{ student.numberOfRecord }}</td>
