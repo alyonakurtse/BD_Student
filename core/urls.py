@@ -12,5 +12,6 @@ urlpatterns = [
     path('students/<int:pk>/update/', core.views.StudentUpdate.as_view(), name='student_update'),
     path('students/<int:pk>/delete/', core.views.StudentDelete.as_view(), name='student_delete'),
     path('students/create/', core.views.StudentCreate.as_view(), name='student_create'),
+    path('home/fmiit', core.views.FMiIT.as_view(), name='core_fmiit'),
 
 ]

@@ -88,3 +88,8 @@ class StudentDelete(TitleMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('core:student_list')
+
+
+class FMiIT(TitleMixin, TemplateView):
+    template_name = 'core/fmiit_info.html'
+    title = 'ФМиИТ'
