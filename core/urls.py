@@ -14,6 +14,6 @@ urlpatterns = [
     path('students/create/', core.views.StudentCreate.as_view(), name='student_create'),
     path('home/fmiit', core.views.FMiIT.as_view(), name='core_fmiit'),
     path('home/ximfuk', core.views.XimFuk.as_view(), name='core_ximfuk'),
-    path('home/ximfuk', core.views.IIGU.as_view(), name='core_iigu'),
+    path('home/iigu', core.views.IIGU.as_view(), name='core_iigu'),
 
 ]
